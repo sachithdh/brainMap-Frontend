@@ -1,12 +1,11 @@
 import Image from "next/image";
-import Student from "./student/page";
-
+import NavBar from "../components/NavBar"
 
 export default function Home() {
   return (
     <>
-    <h1>Hello World</h1>
-    <Student/>
-    </>
+    <NavBar/>
+    {/* <h1 className="bg-red-500">Home page</h1> */}
+    </>  
   );
 }
