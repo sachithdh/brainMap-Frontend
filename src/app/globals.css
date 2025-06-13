@@ -3,5 +3,32 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
 }
 
+
+@theme {
+  --color-primary: #3D52A0;
+  --color-secondary: #7091E6;
+  --color-value1: #8697C4;
+  --color-value2: #ADBBDA;
+  --color-value3: #EDE8F5;
+  --color-success: #4CAF50;
+  --color-danger: #FF6B6B;
+  --color-info: #00B8D9;
+  --color-accent: #F4D06F;
+
+}
+
+/* 
+@layer base {
+  h3 {
+    @apply 
+  }
+}
+
+@layer components {
+  .card {
+    @apply 
+  }
+} */
