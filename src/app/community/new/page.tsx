@@ -264,7 +264,7 @@ export default function NewPostPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-value3 via-white to-value3">
       {/* Header */}
-      <div className="bg-white/80 backdrop-blur-xl border-b border-value2/50 sticky top-0 z-50">
+      <div className="bg-white/80 backdrop-blur-xl border-b border-value2/50 sticky top-16 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -587,7 +587,7 @@ Be descriptive and helpful to get the best engagement from the community!"
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-danger mb-2">❌ Don't:</h4>
+                  <h4 className="font-semibold text-danger mb-2">❌ Dont:</h4>
                   <ul className="space-y-1 text-muted-foreground">
                     <li>• Post spam or promotional content</li>
                     <li>• Share personal information</li>

@@ -6,7 +6,7 @@ import Navbar from "@/components/NavBarModel"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import {
@@ -29,8 +29,6 @@ import {
   Clock,
   TrendingUp,
   Award,
-  Zap,
-  Star,
 } from "lucide-react"
 
 interface Post {
@@ -181,7 +179,7 @@ export default function CommunityPage() {
         </div>
 
         {/* Header */}
-        <div className="bg-white/70 backdrop-blur-2xl border-b border-white/20 sticky top-0 z-50 shadow-2xl shadow-black/5 mt-[1px]">
+        <div className="bg-white/70 backdrop-blur-2xl border-b border-white/20 top-0 z-50 shadow-2xl shadow-blackwhen/5">
             <div className="container mx-auto px-6 py-8">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
                 <div className="flex items-center gap-6">
@@ -209,7 +207,7 @@ export default function CommunityPage() {
                 </Button>
                 <Button
                     size="lg"
-                    className="bg-gradient-to-r from-[#3D52A0] via-[#7091E6] to-[#8697C4] hover:from-[#3D52A0]/90 hover:via-[#7091E6]/90 hover:to-[#8697C4]/90 shadow-2xl shadow-[#3D52A0]/25 hover:shadow-[#3D52A0]/40 transition-all duration-300 rounded-2xl px-8 py-3 text-white font-semibold"
+                    className="bg-gradient-to-r from-[#3D52A0] via-[#7091E6] to-[#8697C4] hover:from-[#3D52A0]/90 hover:via-[#7091E6]/90 hover:to-[#8697C4]/90 shadow-2xl shadow-[#3D52A0]/25 hover:shadow-[#3D52A0]/40 transition-all duration-300 rounded-2xl px-8 py-3 text-white font-semibold cursor-pointer"
                     onClick={() => router.push("/community/new")}
                 >
                     <Plus className="w-5 h-5 mr-3" />

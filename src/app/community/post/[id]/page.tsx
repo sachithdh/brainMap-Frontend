@@ -190,7 +190,7 @@ const mockComments: Comment[] = [
   },
 ]
 
-export default function PostPage({ params }: { params: { id: string } }) {
+export default function PostPage({  }: { params: { id: string } }) {
   const router = useRouter()
   const [post, setPost] = useState<Post>(mockPost)
   const [comments, setComments] = useState<Comment[]>(mockComments)
@@ -383,7 +383,7 @@ export default function PostPage({ params }: { params: { id: string } }) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-value3 via-white to-value3">
       {/* Header */}
-      <div className="bg-white/80 backdrop-blur-xl border-b border-value2/50 sticky top-0 z-50">
+      <div className="bg-white/80 backdrop-blur-xl border-b border-value2/50 sticky top-16 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="sm" onClick={() => router.back()} className="gap-2">
