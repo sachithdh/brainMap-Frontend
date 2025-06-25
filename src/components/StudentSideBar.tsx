@@ -17,10 +17,7 @@ const StudentSidebar = () => {
     <aside className="w-[260px] h-screen bg-white border-r border-gray-200 flex flex-col justify-between shadow-sm">
       {/* Top Logo */}
       <div>
-        <div className="flex items-center justify-center h-[80px] border-b border-gray-100">
-          <img src="/image/BrainMap.png" alt="BrainMap" className="h-10" />
-        </div>
-
+     
         {/* Navigation Menu */}
         <div className="mt-4 px-4 space-y-1 text-sm text-gray-600 font-medium">
           <SidebarItem icon={<Calendar size={18} />} label="Calendar" />
@@ -39,23 +36,7 @@ const StudentSidebar = () => {
         </div>
       </div>
 
-      {/* Bottom User Info */}
-      <div className="p-4 border-t border-gray-100">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <img
-              src="/image/user-avatar.png"
-              alt="User"
-              className="w-10 h-10 rounded-full border border-gray-300"
-            />
-            <div>
-              <p className="text-sm font-medium text-gray-700">Muhammed Ali</p>
-              <p className="text-xs text-gray-400">Free Account</p>
-            </div>
-          </div>
-          <Settings size={16} className="text-gray-400" />
-        </div>
-      </div>
+    
     </aside>
   );
 };

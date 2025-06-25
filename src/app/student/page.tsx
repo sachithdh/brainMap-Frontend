@@ -1,19 +1,13 @@
-// import React from 'react'
-
-// const Student = () => {
-//   return (
-//     <div>
-      
-//     </div>
-//   )
-// }
-
-// export default Student
+import React from 'react';
+import Sidebar from '../../components/StudentSideBar';
 
 
+const page = () => {
+  return (
+    <div>
+      {/* <Sidebar/> */}
+    </div>
+  )
+}
 
-
-
-
-
-//Me file eka ona na neda................?
+export default page

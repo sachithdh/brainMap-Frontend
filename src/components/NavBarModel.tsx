@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
           ? 'bg-white/95 backdrop-blur-xl border-b border-value2/20 shadow-lg' 
           : 'bg-white/80 backdrop-blur-sm border-b border-value3/30'
       }`}>
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className=" mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
           <div className='flex'>  
             {/* Logo */}
@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
                   <img
                   src="/image/BrainMap.png"
                   alt="BrainMap Logo"
-                  className="w-55 h-16 object-contain"
+                  className="w-40 h-16 object-contain"
                   style={{ background: 'transparent' }}
                   />
                 </div>
