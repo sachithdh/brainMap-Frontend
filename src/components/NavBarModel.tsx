@@ -54,12 +54,7 @@ const Navbar: React.FC = () => {
     { 
       label: 'Community', 
       href: '/community', 
-      hasDropdown: true,
-      dropdownItems: [
-        { label: 'Research Network', href: '/community/network', description: 'Connect with researchers', icon: <User className="w-4 h-4" /> },
-        { label: 'Discussion Forums', href: '/community/forums', description: 'Join conversations', icon: <Bell className="w-4 h-4" /> },
-        { label: 'Success Stories', href: '/community/stories', description: 'See how others use Deupload', icon: <Search className="w-4 h-4" /> },
-      ]
+      hasDropdown: false,
     },
     { 
       label: 'Resources', 
@@ -84,12 +79,12 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 z-1000 ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-xl border-b border-value2/20 shadow-lg' 
           : 'bg-white/80 backdrop-blur-sm border-b border-value3/30'
       }`}>
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className=" mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
           <div className='flex'>  
             {/* Logo */}
@@ -99,7 +94,7 @@ const Navbar: React.FC = () => {
                   <img
                   src="/image/BrainMap.png"
                   alt="BrainMap Logo"
-                  className="w-55 h-16 object-contain"
+                  className="w-40 h-16 object-contain"
                   style={{ background: 'transparent' }}
                   />
                 </div>
@@ -111,25 +106,32 @@ const Navbar: React.FC = () => {
             <div className="hidden lg:flex items-center space-x-1">
               {navItems.map((item) => (
                 <div key={item.label} className="relative group">
-                  <button
-                    onClick={() => item.hasDropdown && handleDropdownToggle(item.label)}
-                    className={`flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200
-                      
-                      ${item.label === 'Become a Mentor' ? 'font-bold' : ''}
-
-                      ${
-                      activeDropdown === item.label
-                        ? 'text-primary bg-value3/50'
-                        : 'text-gray-700 hover:text-primary hover:bg-value3/30'
-                    } `}
-                  >
-                    {item.label}
-                    {item.hasDropdown && (
+                  {item.hasDropdown ? (
+                    <button
+                      onClick={() => handleDropdownToggle(item.label)}
+                      className={`flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200
+                        ${item.label === 'Become a Mentor' ? 'font-bold' : ''}
+                        ${
+                        activeDropdown === item.label
+                          ? 'text-primary bg-value3/50'
+                          : 'text-gray-700 hover:text-primary hover:bg-value3/30'
+                      }`}
+                    >
+                      {item.label}
                       <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${
                         activeDropdown === item.label ? 'rotate-180' : ''
                       }`} />
-                    )}
-                  </button>
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className={`flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200
+                        ${item.label === 'Become a Mentor' ? 'font-bold' : ''}
+                        text-gray-700 hover:text-primary hover:bg-value3/30`}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                   
                   {/* Enhanced Dropdown Menu */}
                   {item.hasDropdown && activeDropdown === item.label && (
@@ -207,43 +209,53 @@ const Navbar: React.FC = () => {
             <div className="px-4 py-6 space-y-2">
               {navItems.map((item) => (
                 <div key={item.label}>
-                  <button
-                    onClick={() => item.hasDropdown && handleDropdownToggle(item.label)}
-                    className="flex items-center justify-between w-full px-4 py-3 text-left text-gray-700 hover:text-primary hover:bg-value3/30 rounded-xl transition-all duration-200"
-                  >
-                    <span className="font-medium">{item.label}</span>
-                    {item.hasDropdown && (
-                      <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${
-                        activeDropdown === item.label ? 'rotate-180' : ''
-                      }`} />
-                    )}
-                  </button>
-                  
-                  {/* Mobile Dropdown */}
-                  {item.hasDropdown && activeDropdown === item.label && (
-                    <div className="ml-4 mt-2 space-y-1">
-                      {item.dropdownItems?.map((dropdownItem, index) => (
-                        <Link
-                          key={index}
-                          href={dropdownItem.href}
-                          className="flex items-center p-3 text-sm text-gray-600 hover:text-primary hover:bg-value3/20 rounded-lg transition-all duration-200"
-                          onClick={() => {
-                            setActiveDropdown(null);
-                            setIsMobileMenuOpen(false);
-                          }}
-                        >
-                          <div className="w-8 h-8 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center mr-3">
-                            {dropdownItem.icon}
-                          </div>
-                          <div>
-                            <div className="font-medium">{dropdownItem.label}</div>
-                            {dropdownItem.description && (
-                              <div className="text-xs text-gray-500">{dropdownItem.description}</div>
-                            )}
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
+                  {item.hasDropdown ? (
+                    <>
+                      <button
+                        onClick={() => handleDropdownToggle(item.label)}
+                        className="flex items-center justify-between w-full px-4 py-3 text-left text-gray-700 hover:text-primary hover:bg-value3/30 rounded-xl transition-all duration-200"
+                      >
+                        <span className="font-medium">{item.label}</span>
+                        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${
+                          activeDropdown === item.label ? 'rotate-180' : ''
+                        }`} />
+                      </button>
+                      
+                      {/* Mobile Dropdown */}
+                      {activeDropdown === item.label && (
+                        <div className="ml-4 mt-2 space-y-1">
+                          {item.dropdownItems?.map((dropdownItem, index) => (
+                            <Link
+                              key={index}
+                              href={dropdownItem.href}
+                              className="flex items-center p-3 text-sm text-gray-600 hover:text-primary hover:bg-value3/20 rounded-lg transition-all duration-200"
+                              onClick={() => {
+                                setActiveDropdown(null);
+                                setIsMobileMenuOpen(false);
+                              }}
+                            >
+                              <div className="w-8 h-8 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center mr-3">
+                                {dropdownItem.icon}
+                              </div>
+                              <div>
+                                <div className="font-medium">{dropdownItem.label}</div>
+                                {dropdownItem.description && (
+                                  <div className="text-xs text-gray-500">{dropdownItem.description}</div>
+                                )}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="flex items-center w-full px-4 py-3 text-left text-gray-700 hover:text-primary hover:bg-value3/30 rounded-xl transition-all duration-200"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <span className="font-medium">{item.label}</span>
+                    </Link>
                   )}
                 </div>
               ))}
@@ -265,7 +277,7 @@ const Navbar: React.FC = () => {
       </header>
       
       {/* Spacer to prevent content from hiding behind fixed navbar */}
-      <div className="h-16"></div>
+      <div className="h-5"></div>
     </>
   );
 };
