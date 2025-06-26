@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import SimpleTableRow from '@/components/SimpleTableRow';
+import { useRouter } from 'next/navigation';
 import { 
   Calendar,
   Kanban,
@@ -31,6 +32,8 @@ export default function ListBoardPage() {
   const [selectedItems, setSelectedItems] = useState<Set<number>>(new Set([1, 2, 4, 5, 6]));
   const [searchTerm, setSearchTerm] = useState('');
   const [activeView, setActiveView] = useState('Kanban');
+
+  const router = useRouter();
 
   // Sample data matching the image
   const tableItems: TableItem[] = [
@@ -97,6 +100,19 @@ export default function ListBoardPage() {
     { name: 'List', icon: List, active: false },
   ];
 
+  const handleViewChange = (viewName: string) => {
+    setActiveView(viewName);
+    
+    // Navigate to calendar page when Calendar tab is clicked
+    if (viewName === 'Calendar') {
+      router.push('/calendar');
+      return;
+    }
+    
+    // Handle other view changes here if needed
+    // For example, you might want to navigate to different pages for other views too
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white border-b border-gray-200">
@@ -133,7 +149,7 @@ export default function ListBoardPage() {
               return (
                 <button
                   key={tab.name}
-                  onClick={() => setActiveView(tab.name)}
+                  onClick={() => handleViewChange(tab.name)}
                   className={`flex items-center space-x-2 px-3 py-3 border-b-2 text-sm font-medium transition-colors ${
                     tab.name === activeView
                       ? 'border-blue-500 text-blue-600'
