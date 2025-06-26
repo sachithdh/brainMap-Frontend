@@ -185,7 +185,7 @@ const Navbar: React.FC = () => {
 
               {/* Sign In Button */}
               <Link
-                href="/signin"
+                href="/login"
                 className="hidden sm:flex items-center bg-gradient-to-r from-primary to-secondary hover:from-secondary hover:to-primary text-white px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               >
                 Sign In
@@ -263,7 +263,7 @@ const Navbar: React.FC = () => {
               {/* Mobile Sign In */}
               <div className="pt-4 border-t border-value2/20">
                 <Link
-                  href="/signin"
+                  href="/login"
                   className="flex items-center justify-center bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
