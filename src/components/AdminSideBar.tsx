@@ -201,7 +201,7 @@ function AdminSideBar({ currentPage, onNavigate }: AdminSideBarProps) {
                         : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                     }`}
                   >
-                    <div className={`w-2 h-2 rounded-full ${item.color}`}></div>
+                    {/* <div className={`w-2 h-2 rounded-full ${item.color}`}></div> */}
                     <item.icon className="h-4 w-4" />
                     <span className="flex-1 text-left">{item.title}</span>
                     <span className="text-xs text-gray-500">{item.count}</span>
@@ -219,7 +219,7 @@ function AdminSideBar({ currentPage, onNavigate }: AdminSideBarProps) {
                   </button>
                   
                   {item.children && item.isOpen && (
-                    <div className="pl-8 space-y-1 mt-1">
+                    <div className="pl-4 space-y-1 mt-1">
                       {item.children.map((child) => (
                         <button
                           key={child.title}
