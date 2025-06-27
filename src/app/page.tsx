@@ -148,13 +148,13 @@ const successStories: SuccessStory[] = [
           {/* Enhanced CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
             <button
-              onClick={() => handleClick('Get Started')}
+              onClick={() => window.location.href = '/register'}
               className="group relative px-10 py-5 bg-gradient-to-r from-primary to-secondary text-white font-bold text-xl rounded-3xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl shadow-xl"
             >
               <span className="flex items-center">
-                <Upload className="w-6 h-6 mr-3" />
-                Get Started Free
-                <ChevronRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform duration-300" />
+              <Upload className="w-6 h-6 mr-3" />
+              Get Started Free
+              <ChevronRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform duration-300" />
               </span>
             </button>
             
