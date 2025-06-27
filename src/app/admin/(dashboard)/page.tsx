@@ -2,7 +2,26 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import DashboardNavBar from '@/components/DashboardNavBar';
+
+// Import additional icons
+import { 
+  Home, 
+  Users, 
+  FileText, 
+  MessageSquare, 
+  Settings, 
+  BarChart3, 
+  CheckCircle, 
+  Lock, 
+  TrendingUp,
+  Shield,
+  Bell,
+  Calendar,
+  Flag,
+  UserPlus,
+  UserX,
+  UserCheck
+} from 'lucide-react';
 
 // Dashboard Icons
 const BrainIcon = () => (
@@ -58,8 +77,8 @@ interface RecentActivity {
   type: 'brain-map' | 'analysis' | 'collaboration' | 'learning';
 }
 
-export default function Dashboard() {
-  const [userRole, setUserRole] = useState<string>('student'); // Default role
+export default function AdminDashboard() {
+  const [userRole, setUserRole] = useState<string>('admin');
   const [isLoading, setIsLoading] = useState(true);
 
   // Mock data - in real app, this would come from API
@@ -150,7 +169,6 @@ export default function Dashboard() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gray-50">
-        <DashboardNavBar />
         <div className="flex items-center justify-center min-h-screen">
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
         </div>
@@ -159,37 +177,12 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <DashboardNavBar />
-      
+    <div className="flex-1 overflow-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-          <p className="mt-2 text-gray-600">Welcome back! Here's what's happening with your brain mapping projects.</p>
-        </div>
-
-        {/* Role-based Navigation */}
-        <div className="mb-8 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Quick Access</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Link href="/dashboard/student" className="flex flex-col items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
-              <UsersIcon />
-              <span className="mt-2 text-sm font-medium text-gray-900">Student</span>
-            </Link>
-            <Link href="/dashboard/expert" className="flex flex-col items-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
-              <BrainIcon />
-              <span className="mt-2 text-sm font-medium text-gray-900">Expert</span>
-            </Link>
-            <Link href="/dashboard/moderator" className="flex flex-col items-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
-              <SettingsIcon />
-              <span className="mt-2 text-sm font-medium text-gray-900">Moderator</span>
-            </Link>
-            <Link href="/dashboard/admin" className="flex flex-col items-center p-4 bg-red-50 rounded-lg hover:bg-red-100 transition-colors">
-              <NotificationIcon />
-              <span className="mt-2 text-sm font-medium text-gray-900">Admin</span>
-            </Link>
-          </div>
+          <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+          <p className="mt-2 text-gray-600">Manage users, content, and system settings from your admin control panel.</p>
         </div>
 
         {/* Stats Cards */}
@@ -214,13 +207,13 @@ export default function Dashboard() {
         </div>
 
         {/* Recent Activity */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Recent Activity</h2>
           <div className="space-y-4">
             {recentActivities.map((activity) => (
               <div key={activity.id} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
                 <div className="flex-shrink-0">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
                     <BrainIcon />
                   </div>
                 </div>
@@ -234,52 +227,58 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Quick Actions */}
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Admin Actions */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">User Actions</h3>
             <div className="space-y-3">
-              <Link href="/create-brain-map" className="block w-full text-left p-3 bg-primary text-white rounded-lg hover:bg-blue-700 transition-colors">
-                Create New Brain Map
-              </Link>
-              <Link href="/analysis" className="block w-full text-left p-3 bg-gray-100 text-gray-900 rounded-lg hover:bg-gray-200 transition-colors">
-                Start Analysis
-              </Link>
-              <Link href="/collaborate" className="block w-full text-left p-3 bg-gray-100 text-gray-900 rounded-lg hover:bg-gray-200 transition-colors">
-                Find Collaborators
-              </Link>
+              <button
+                onClick={() => console.log('Navigate to new-users')}
+                className="block w-full text-left p-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+              >
+                Review New Users
+              </button>
+              <button
+                onClick={() => console.log('Navigate to banned-users')}
+                className="block w-full text-left p-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+              >
+                Manage Banned Users
+              </button>
             </div>
           </div>
 
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Learning Progress</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Content Moderation</h3>
+            <div className="space-y-3">
+              <button
+                onClick={() => console.log('Navigate to reported-posts')}
+                className="block w-full text-left p-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+              >
+                Review Reports
+              </button>
+              <button
+                onClick={() => console.log('Navigate to pending-reviews')}
+                className="block w-full text-left p-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors"
+              >
+                Pending Reviews
+              </button>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">System Status</h3>
             <div className="space-y-4">
-              <div>
-                <div className="flex justify-between text-sm mb-1">
-                  <span>Brain Mapping Fundamentals</span>
-                  <span>75%</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-primary h-2 rounded-full" style={{ width: '75%' }}></div>
-                </div>
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-gray-600">Server Status</span>
+                <span className="px-2 py-1 text-xs bg-green-100 text-green-800 rounded">Online</span>
               </div>
-              <div>
-                <div className="flex justify-between text-sm mb-1">
-                  <span>Advanced Analytics</span>
-                  <span>45%</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-primary h-2 rounded-full" style={{ width: '45%' }}></div>
-                </div>
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-gray-600">Database</span>
+                <span className="px-2 py-1 text-xs bg-green-100 text-green-800 rounded">Healthy</span>
               </div>
-              <div>
-                <div className="flex justify-between text-sm mb-1">
-                  <span>Collaboration Tools</span>
-                  <span>90%</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-primary h-2 rounded-full" style={{ width: '90%' }}></div>
-                </div>
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-gray-600">Security</span>
+                <span className="px-2 py-1 text-xs bg-yellow-100 text-yellow-800 rounded">2 Alerts</span>
               </div>
             </div>
           </div>
