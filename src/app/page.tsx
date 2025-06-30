@@ -8,8 +8,8 @@ import JoinCommunity from '../components/JoinCommunity';
 import ExpertsFeatures from '../components/ExpertsFeatures';
 import ConnectLearnAchieveHero from '../components/ConnectLearnAchievePoster';
 import PopularServices from '../components/Carousel'
-import { ArrowRight, Download, Play, Plus, Heart,Star,Send, Settings,TrendingUp,
-  Search, ChevronRight, Upload, Users, Shield, Zap,  Globe, FileText
+import { ArrowRight, Star
+  ,Search, ChevronRight, Upload,  Globe
 } from 'lucide-react';
 
 import Image from 'next/image';
