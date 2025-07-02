@@ -13,12 +13,14 @@ import { ArrowRight, Star
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useAuth } from '@/contexts/AuthContext'; // Adjust the import path as necessary
 
 
 const Home: React.FC = () => {
 
 
     const [searchQuery, setSearchQuery] = useState<string>('');
+    const { user } = useAuth(); // Access the user from AuthContext
   
   
     const handleSearch = (e: React.FormEvent) => {
@@ -32,6 +34,8 @@ const Home: React.FC = () => {
     const handleClick = (buttonName: string) => {
     console.log(`${buttonName} button clicked!`);
   };
+
+  // console.log(user);
 
 
 
