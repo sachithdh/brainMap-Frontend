@@ -35,7 +35,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const { data: authListener } = supabase.auth.onAuthStateChange(
       (event, session) => {
         setUser(session?.user ?? null)
-        if (event === 'SIGNED_IN') router.push('/dashboard')
+        if (event === 'SIGNED_IN') router.push('/')
       }
     )
 
