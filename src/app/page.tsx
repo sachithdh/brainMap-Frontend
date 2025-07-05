@@ -13,12 +13,14 @@ import { ArrowRight, Star,
 
 import Image from 'next/image';
 import Link from 'next/link';
+// import { useAuth } from '@/contexts/AuthContext'; // Adjust the import path as necessary
 
 
 const Home: React.FC = () => {
 
 
     const [searchQuery, setSearchQuery] = useState<string>('');
+    // const { user } = useAuth(); // Access the user from AuthContext
   
   
     const handleSearch = (e: React.FormEvent) => {
@@ -32,6 +34,8 @@ const Home: React.FC = () => {
     const handleClick = (buttonName: string) => {
     console.log(`${buttonName} button clicked!`);
   };
+
+  // console.log(user);
 
 
 
@@ -130,9 +134,9 @@ const successStories: SuccessStory[] = [
                         <CustomButton
                           text="Search"
                           type = 'submit'
-                          backgroundColor="bg-gradient-to-r from-primary to-secondary"
+                          backgroundColor="bg-primary "
                           textColor="text-white"
-                          hoverBackgroundColor="hover:bg-value1 hover:text-black"
+                          hoverBackgroundColor="hover:bg-secondary hover:text-black"
                           onClick={() => handleClick('Get Started')}
                         />
                       </div>
@@ -148,7 +152,7 @@ const successStories: SuccessStory[] = [
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
             <button
               onClick={() => window.location.href = '/register'}
-              className="group relative px-10 py-5 bg-gradient-to-r from-primary to-secondary text-white font-bold text-xl rounded-3xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl shadow-xl"
+              className="group relative px-10 py-5 bg-primary  text-white font-bold text-xl rounded-2xl transition-all duration-500 transform shadow-xl"
             >
               <span className="flex items-center">
               <Upload className="w-6 h-6 mr-3" />
@@ -159,7 +163,7 @@ const successStories: SuccessStory[] = [
             
             <button
               onClick={() => handleClick('Pricing')}
-              className="px-10 py-5 bg-white/15 backdrop-blur-xl hover:bg-white/25 text-white font-bold text-xl rounded-3xl border-2 border-white/30 hover:border-accent/50 transition-all duration-500 transform hover:scale-110 shadow-xl"
+              className="px-10 py-5 bg-white/15 backdrop-blur-xl hover:bg-white/25 text-white font-bold text-xl rounded-2xl border-2 border-white/30 hover:border-accent/50 transition-all duration-500 transform shadow-xl"
             >
               <span className="flex items-center">
                 <Globe className="w-6 h-6 mr-3" />
@@ -223,9 +227,9 @@ const successStories: SuccessStory[] = [
 
                 <CustomButton
                 text="Learn More"
-                backgroundColor="bg-secondary"
-                textColor="text-gray-800"
-                hoverBackgroundColor="hover:bg-info"
+                backgroundColor="bg-primary"
+                textColor="text-white"
+                hoverBackgroundColor="hover:bg-secondary hover:text-black"
                 icon={ArrowRight}
                 onClick={() => handleClick('Get Started')}
               />
@@ -256,9 +260,9 @@ const successStories: SuccessStory[] = [
 
               <CustomButton
                 text="Join Now"
-                backgroundColor="bg-secondary"
-                textColor="text-gray-800"
-                hoverBackgroundColor="hover:bg-info"
+                backgroundColor="bg-primary"
+                textColor="text-white"
+                hoverBackgroundColor="hover:bg-secondary hover:text-black"
                 icon={ArrowRight}
                 onClick={() => handleClick('Get Started')}
               />
