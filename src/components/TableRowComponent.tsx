@@ -5,8 +5,6 @@ import {
   Check, 
   Circle, 
   MoreHorizontal, 
-  ArrowUpDown,
-  ChevronDown 
 } from 'lucide-react';
 
 interface TableRowProps {

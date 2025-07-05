@@ -19,17 +19,18 @@ import {
   UserCheck,
   GraduationCap,
   Award,
+  type LucideIcon,
 } from "lucide-react";
 
 interface MenuItem {
   title: string;
-  icon: React.ComponentType<any>;
+  icon: LucideIcon;
   url: string;
 }
 
 interface UserManagementItem {
   title: string;
-  icon: React.ComponentType<any>;
+  icon: LucideIcon;
   url: string;
   count: string;
   color: string;
@@ -39,7 +40,7 @@ interface UserManagementItem {
 
 interface ModerationItem {
   title: string;
-  icon: React.ComponentType<any>;
+  icon: LucideIcon;
   url: string;
   count: string;
   color: string;

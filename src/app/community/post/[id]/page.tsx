@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
@@ -190,13 +190,24 @@ const mockComments: Comment[] = [
   },
 ]
 
-export default function PostPage({  }: { params: { id: string } }) {
+export default function PostPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter()
   const [post, setPost] = useState<Post>(mockPost)
   const [comments, setComments] = useState<Comment[]>(mockComments)
   const [newComment, setNewComment] = useState("")
   const [replyingTo, setReplyingTo] = useState<string | null>(null)
   const [replyContent, setReplyContent] = useState("")
+  const [postId, setPostId] = useState<string>("")
+
+  // Extract the post ID from params
+  useEffect(() => {
+    const getPostId = async () => {
+      const resolvedParams = await params
+      setPostId(resolvedParams.id)
+      console.log(`Loading post with ID: ${postId}`)
+    }
+    getPostId()
+  }, [])
 
   const handleLike = () => {
     setPost({ ...post, isLiked: !post.isLiked, likes: post.isLiked ? post.likes - 1 : post.likes + 1 })

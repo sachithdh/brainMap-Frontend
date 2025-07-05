@@ -21,7 +21,7 @@ interface TableData {
 
 const TableContainer: React.FC = () => {
   // Sample data - replace with your actual data
-  const [tableData, setTableData] = useState<TableData[]>([
+  const [tableData] = useState<TableData[]>([
     {
       id: 1,
       name: 'Bold text column',

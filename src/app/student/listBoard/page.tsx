@@ -20,7 +20,6 @@ import {
   Settings,
   Edit3,
   Trash2,
-  Copy,
   Zap
 } from 'lucide-react';
 

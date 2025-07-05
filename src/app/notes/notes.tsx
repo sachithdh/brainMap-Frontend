@@ -4,7 +4,14 @@ import React, { useState } from 'react';
 import NavBar from '../../components/NavBarModel';
 import { Pencil, Plus, Trash2, X } from 'lucide-react';
 
-const initialNotes = [
+interface Note {
+  id: number;
+  title: string;
+  description: string;
+  color: string;
+}
+
+const initialNotes: Note[] = [
   {
     id: 1,
     title: 'The beginning of screenless design: UI jobs to be taken over by Solution Architect',
@@ -64,11 +71,11 @@ const Notes: React.FC = () => {
   const [notes, setNotes] = useState(initialNotes);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState<'add' | 'edit' | null>(null);
-  const [currentNote, setCurrentNote] = useState<any>(null);
+  const [currentNote, setCurrentNote] = useState<Note | null>(null);
   const [form, setForm] = useState({ title: '', description: '', color: colorOptions[0] });
 
   // Open modal for add or edit
-  const openModal = (type: 'add' | 'edit', note?: any) => {
+  const openModal = (type: 'add' | 'edit', note?: Note) => {
     setModalType(type);
     setShowModal(true);
     if (type === 'edit' && note) {

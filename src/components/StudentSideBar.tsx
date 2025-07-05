@@ -1,28 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
-import CustomButton from './CustomButtonModel';
 import {
   Calendar,
   CheckSquare,
   Folder,
   Star,
   StickyNote,
-  Settings,
-  MoreVertical,
-  User,
-  Crown,
-  ChevronRight,
   Plus,
-  Search,
-  Bell,
   Zap,
 } from 'lucide-react';
 
 const StudentSidebar = () => {
   const [activeItem, setActiveItem] = useState('Projects');
-  const [notifications] = useState(3);
 
   return (
     <aside className="w-[280px] h-screen bg-gradient-to-b from-value3 via-white to-value3 border-r border-value2 flex flex-col shadow-xl overflow-hidden sticky top-0">
@@ -208,20 +198,5 @@ const ProjectItem = ({
   </div>
 );
 
-const QuickAction = ({
-  icon,
-  label,
-}: {
-  icon: React.ReactNode;
-  label: string;
-}) => (
-  <button className="group flex items-center w-full px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-value3 hover:to-value3 rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-sm">
-    <span className="mr-3 p-2 bg-gradient-to-br from-value3 to-value2 rounded-xl group-hover:from-primary/10 group-hover:to-secondary/10 group-hover:text-primary transition-all duration-300 group-hover:scale-110 shadow-sm">
-      {icon}
-    </span>
-    <span className="text-sm font-medium group-hover:text-primary">{label}</span>
-    <ChevronRight size={14} className="ml-auto text-value1 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
-  </button>
-);
 
 export default StudentSidebar;
