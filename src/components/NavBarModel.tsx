@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Upload, Search, Grid3X3, User, ChevronDown, Menu, X, Bell, Settings } from 'lucide-react';
+import Image from 'next/image';
 
 interface NavItem {
   label: string;
@@ -91,7 +92,9 @@ const Navbar: React.FC = () => {
             <div className="flex items-center">
               <Link href="/" className="flex items-center space-x-3 group">
                 <div className="w-55 h-16 flex items-center justify-center">
-                  <img
+                  <Image
+                  width={100}
+                  height={100}
                   src="/image/BrainMap.png"
                   alt="BrainMap Logo"
                   className="w-40 h-16 object-contain"

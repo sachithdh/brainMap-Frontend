@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { 
   Menu, 
-  Grid3X3, 
   Search, 
   Plus, 
   Bell, 
@@ -10,6 +9,7 @@ import {
   Settings,
   ChevronDown
 } from 'lucide-react';
+import Image from 'next/image';
 
 const JiraNavbar: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -27,7 +27,7 @@ const JiraNavbar: React.FC = () => {
     
 
           <div className="w-35 h-10 flex items-center justify-center">
-                  <img
+                  <Image
                   src="/image/BrainMap.png"
                   alt="BrainMap Logo"
                   className="w-40 h-16 object-contain"

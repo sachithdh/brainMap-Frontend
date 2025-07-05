@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Service {
   id: string;
@@ -171,7 +172,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   return (
     <div className="w-full h-full bg-gray-200 rounded-2xl hover:bg-gray-300 transition-colors duration-300 flex items-center justify-center relative overflow-hidden group">
       {service.image ? (
-        <img
+        <Image
           src={service.image}
           alt={service.title}
           className="w-full h-full object-cover"

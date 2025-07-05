@@ -1,15 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
-import ErrorDialog from '../components/modals/ErrorDialogModal';
 import NavBar from '../components/NavBarModel'
 import CustomButton from '../components/CustomButtonModel';
 import JoinCommunity from '../components/JoinCommunity';
 import ExpertsFeatures from '../components/ExpertsFeatures';
 import ConnectLearnAchieveHero from '../components/ConnectLearnAchievePoster';
 import PopularServices from '../components/Carousel'
-import { ArrowRight, Download, Play, Plus, Heart,Star,Send, Settings,TrendingUp,
-  Search, ChevronRight, Upload, Users, Shield, Zap,  Globe, FileText
+import { ArrowRight, Star,
+  Search, ChevronRight, Upload, Globe
 } from 'lucide-react';
 
 import Image from 'next/image';
@@ -251,7 +250,7 @@ const successStories: SuccessStory[] = [
               
               <p className="text-gray-600 text-lg leading-relaxed">
                 Share your expertise, guide students ethically, and contribute to academic 
-                success — all while growing your reputation and earning income on BrainMap's 
+                success — all while growing your reputation and earning income on BrainMaps 
                 trusted platform.
               </p>
 
